@@ -233,7 +233,7 @@ int Game::GetScore()
 
 void Game::UpdateWindowTitle()
 {
-	std::string title = "Snake++ Score: " + std::to_string(score) + " FPS: " + std::to_string(fps);
+	std::string title = "CppSnake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps);
 	SDL_SetWindowTitle(window, title.c_str());
 }
 

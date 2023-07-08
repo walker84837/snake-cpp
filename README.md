@@ -1,30 +1,35 @@
-# Snake
+# snake-cpp
 
-This program is a simple implementation of the classic Snake game using the SDL2 library in C++.
+This is a simple Snake game implemented in C++. It features the classic gameplay of the Snake game, with some additional enhancements.
 
-## How to play
+## Usage
 
-- Use the arrow keys to change the direction of the snake's movement.
-- The game is over if the snake collides with the wall or its own tail.
-- The score is displayed on the top left corner of the screen.
+To compile and run the Snake game, follow these steps:
 
-## Prerequisites
+1. Clone the repository: `git clone https://github.com/walker84837/snake-cpp.git`;
 
-To run this program, you need to have the SDL2 library installed on your system. You can download it from the official website:
+2. Navigate to the project directory: `cd snake-cpp`;
 
-- [SDL2](https://github.com/libsdl-org/SDL/releases/latest)
+3. Compile the source code using CMake: `make`;
 
-## Building and running
+4. Run the game:`./snake`;
 
-To build the program, run the following commands:
+5. Use the arrow keys to control the snake. The goal is to eat the food and avoid collisions with the snake's body or the screen edges.
 
-```g++ -o snake main.cpp sdl2-config --cflags --libs -lSDL2_ttf```
+## Contributing
 
-To run the program, execute the following command:
+Contributions are welcome! If you would like to contribute to this project, please follow these steps:
 
-```./snake```
+1. Fork the repository.
+
+2. Create a new branch for your feature or bug fix.
+
+3. Make your changes and commit them to your branch.
+
+4. Push your branch to your forked repository.
+
+5. Submit a pull request detailing your changes and improvements.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+This project is licensed under the GPLv3 License. For more information, please see the [LICENSE](LICENSE) file.

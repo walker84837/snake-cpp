@@ -48,6 +48,8 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 - **OPTIONAL**: Add a border for the snake body.
 
+5. Submit a pull request detailing your changes and improvements.
+
 ## License
 
 This project is licensed under the GPLv3 License. For more information, please see the [LICENSE](LICENSE) file.

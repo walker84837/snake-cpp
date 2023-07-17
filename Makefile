@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -O3 -std=c++20
+CXXFLAGS = -O4 -std=c++17
 SDL_INCLUDE = -I/usr/include/SDL2
 SDL_LIB = -lSDL2
 

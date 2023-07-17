@@ -2,13 +2,22 @@
 #include <thread>
 #include "Game.hpp"
 
+std::string toLowercase(const std::string& input) {
+	std::string result = input;
+	for (char& c : result) {
+		c = std::tolower(c);
+	}
+	return result;
+}
+
 void getExitInput()
 {
 	std::string in;
 	while (true)
 	{
 		std::getline(std::cin, in);
-		if (in == "q" || in == "exit" || in == "quit")
+		std::string in_lower = toLowercase(in);
+		if (in_lower == "q" || in_lower == "exit" || in_lower == "quit")
 		{
 			std::cout << "Exiting..." << '\n';
 			std::exit(0);

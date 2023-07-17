@@ -15,7 +15,6 @@ class Game
 public:
 	void loadConfig()
 	{
-
 		if (!std::filesystem::exists("config.json"))
 		{
 			throw std::runtime_error("File \"config.json\" doesn't exist.");

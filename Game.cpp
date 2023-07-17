@@ -17,13 +17,15 @@ Game::Game()
 
 void Game::Run()
 {
+	loadConfig();
+
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
 		throw std::runtime_error("SDL could not initialize!");
 	}
 
-	window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-							  SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("C++ Snake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+		SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_BORDERLESS);
 
 	if (window == nullptr)
 	{
@@ -86,7 +88,6 @@ void Game::GameLoop()
 			fps = frames;
 			frames = 0;
 			second = after;
-			UpdateWindowTitle();
 		}
 
 		if (FRAME_RATE > frame_time)
@@ -133,6 +134,11 @@ void Game::PollEvents()
 	}
 }
 
+void Game::EndGame() {
+	std::cout << "Game Over!" << '\n' << "Score: " << Game::GetScore() << ", size: " << Game::GetSize() << "\n";
+	std::exit(0);
+}
+
 int Game::GetSize()
 {
 	return size;
@@ -145,8 +151,9 @@ void Game::GrowBody(int quantity)
 
 void Game::Update()
 {
-	if (!alive)
-		return;
+	if (!alive) {
+		EndGame();
+	}
 
 	switch (dir)
 	{
@@ -229,12 +236,6 @@ void Game::Update()
 int Game::GetScore()
 {
 	return score;
-}
-
-void Game::UpdateWindowTitle()
-{
-	std::string title = "CppSnake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps);
-	SDL_SetWindowTitle(window, title.c_str());
 }
 
 void Game::Render()

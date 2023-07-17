@@ -15,3 +15,11 @@
     - `main.cpp`
 - Changed the license to GPLv3.
 
+## v0.0.3
+
+- Add JSON configuration to change:
+  - Resolution
+  - Framerate limit
+- Fixed:
+  - Doing CTRL+C in the command line revives you once
+  - Close button isn't responsive. Fixed by making the window borderless and letting the user input a key to quit the game.

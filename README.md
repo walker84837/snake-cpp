@@ -1,5 +1,7 @@
 # snake-cpp
 
+![Pasted image](https://github.com/walker84837/snake-cpp/assets/68739688/e786bc33-0dbb-424a-8bdf-c981c4905227)
+
 This is a simple Snake game implemented in C++. It features the classic gameplay of the Snake game, with some additional enhancements.
 
 ## Usage

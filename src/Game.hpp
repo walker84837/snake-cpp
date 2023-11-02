@@ -1,29 +1,38 @@
 #pragma once
-#include <vector>
 #include <SDL.h>
 #include <SDL_image.h>
-#include <fstream>
 #include <filesystem>
-#include <stdexcept>
+#include <fstream>
+#include <iostream>
 #include <nlohmann/json.hpp>
+#include <stdexcept>
+#include <vector>
 
 using json = nlohmann::json;
 
 class Game
 {
 
-public:
+      public:
 	void loadConfig()
 	{
-		if (!std::filesystem::exists("config.json"))
-		{
-			throw std::runtime_error("File \"config.json\" doesn't exist.");
+		try {
+			if (!std::filesystem::exists("config.json")) {
+				throw std::runtime_error(
+					"File \"config.json\" doesn't exist."
+				);
+			}
 		}
 
+		catch (std::runtime_error &error) {
+			std::cerr << "Error: " << error.what();
+			std::exit(1);
+		}
 		std::ifstream config("config.json");
 		json data = json::parse(config);
 
-		const int fpsmax = static_cast<int>(data["maxfps"]) - 1;
+		const int fpsmax =
+		    (static_cast<int>(data["maxfps"]) - 1) * 0.75;
 		const int width = static_cast<int>(data["width"]);
 		const int height = static_cast<int>(data["height"]);
 
@@ -37,13 +46,14 @@ public:
 	int GetScore();
 	int GetSize();
 
-private:
+      private:
 	bool running = false;
 	bool alive = false;
 	int fps = 0;
 
 	/**
-	 * TODO: Change the code so when grid dimensions adapt to new screen dimensions
+	 * TODO: Change the code so when grid dimensions adapt to new screen
+	 * dimensions
 	 */
 
 	int FRAME_RATE;
@@ -55,26 +65,13 @@ private:
 	SDL_Window *window = nullptr;
 	SDL_Renderer *renderer = nullptr;
 
-	enum class Block
-	{
-		head,
-		body,
-		food,
-		empty
-	};
-	enum class Move
-	{
-		up,
-		down,
-		left,
-		right
-	};
+	enum class Block { head, body, food, empty };
+	enum class Move { up, down, left, right };
 
 	Move last_dir = Move::up;
 	Move dir = Move::up;
 
-	struct
-	{
+	struct {
 		float x = GRID_WIDTH / 2, y = GRID_HEIGHT / 2;
 	} pos;
 

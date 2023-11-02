@@ -1,0 +1,1 @@
+# PlaceholderHere will be documentation in case there will ever be a need to document the JSON configuration file, or something else. I will add it once it will be worth it to add any useful documentation that can't be put in the README.md file.
